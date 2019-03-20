@@ -7,7 +7,6 @@ class County(@SerializedName("name") val countyName: String, @SerializedName("we
 
     @Transient
     val id = 0
-
     var cityId = 0
 
 }

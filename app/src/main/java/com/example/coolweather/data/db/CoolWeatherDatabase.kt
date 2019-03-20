@@ -5,7 +5,6 @@ object CoolWeatherDatabase {
 
     private var weatherDao: WeatherDao? = null
 
-
     fun getPlaceDao(): PlaceDao {
         if (placeDao == null) placeDao = PlaceDao()
         return placeDao!!

@@ -12,24 +12,17 @@ import kotlin.coroutines.suspendCoroutine
 class CoolWeatherNetwork {
     private val placeService = ServiceCreator.create(PlaceService::class.java)
 
-
     private val weatherService = ServiceCreator.create(WeatherService::class.java)
-
 
     suspend fun fetchProvinceList() = placeService.getProvinces().await()
 
-
     suspend fun fetchCityList(provinceId: Int) = placeService.getCities(provinceId).await()
-
 
     suspend fun fetchCountyList(provinceId: Int, cityId: Int) = placeService.getCounties(provinceId, cityId).await()
 
-
     suspend fun fetchWeather(weatherId: String, key: String) = weatherService.getWeather(weatherId, key).await()
 
-
     suspend fun fetchBingPic() = weatherService.getBingPic().await()
-
 
     private suspend fun <T> Call<T>.await(): T {
         return suspendCoroutine { continuation ->
